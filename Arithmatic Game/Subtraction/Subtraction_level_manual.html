@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subtraction</title> 
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <style>
+        .body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .container {
+            background-color: #9dd2ea;
+            height: 550px;
+            width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 2px rgb(21, 2, 109);
+            position: relative;
+        }
+        .levels{
+            display: flex;
+            flex-direction: column;
+        }
+        .level{
+            width: 450px;
+            height: 50px;
+            color: white;
+            background-color: rgb(151, 86, 147);
+            box-shadow: 0px 2px rgb(26, 7, 34);
+            margin: 10px auto;
+            text-align: center;
+            line-height: 45px;
+        }
+        .level:hover{
+            background-color:rgb(48, 25, 58);;
+            transition: 0.3s ease-in-out;
+        }
+        #heading{
+            text-align: center;
+            font-weight: bold;
+            color: rgb(26, 7, 34);
+        }
+    </style>
+</head>
+<body>
+    <!-- <a href="../music/mixkit-wrong-answer-fail-notification-946.wav"></a> -->
+    <div class="container">
+        <h1 id="heading">Choose Level</h1>
+         <div class="levels">
+             <a class="level btn btn-primary" href="javascript:;" onclick="this.href='./Subtraction_manual.html?level='+'1'">Level 1</a>
+             <a class="level btn btn-primary" href="javascript:;" onclick="this.href='./Subtraction_manual.html?level='+'2'">Level 2</a>
+             <a class="level btn btn-primary" href="javascript:;" onclick="this.href='./Subtraction_manual.html?level='+'3'">Level 3</a>
+             <a class="level btn btn-primary" href="javascript:;" onclick="this.href='./Subtraction_manual.html?level='+'4'">Level 4</a>
+             <a class="level btn btn-primary" href="javascript:;" onclick="this.href='./Subtraction_manual.html?level='+'5'">Level 5</a>
+             <a class="level btn btn-primary" href="javascript:;" onclick="this.href='./Subtraction_manual.html?level='+'6'">Level 6</a>
+         </div>
+    </div>
+</body>
+</html>
