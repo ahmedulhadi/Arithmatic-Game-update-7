@@ -6,6 +6,8 @@ var wrong_ans;
 var wrongAnsCnt;
 var totalQueCnt;
 
+//comitted to github
+
 var url = window.location.href; //get url first
 var level = url.split('?')[1]; //get level  
 
