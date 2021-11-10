@@ -6,6 +6,7 @@ var correct_ans;
 
 var wrongAnsCnt;
 var totalQueCnt;
+var wrong_ans;
 
 var url = window.location.href; //get url first
 var level = url.split('?')[1]; //get level  
@@ -61,6 +62,7 @@ function checkans() {
         // if we play_now
 
     else if (play_now == true) {
+        totalQueCnt++;
         if (user_inp == correct_ans) {
             //correct answer
             // console.log('correct runnig..');
@@ -68,7 +70,10 @@ function checkans() {
             document.getElementById('score-value').innerHTML = current_score;
             hide_func('wrong_tag');
             show_func('correct_tag')
-                // audio for correct ans
+            wrongAnsCnt++;
+            console.log(wrongAnsCnt)
+
+            // audio for correct ans
             var correct_audio = new Audio('../music/correct_ans.wav');
             correct_audio.play();
 
@@ -126,21 +131,36 @@ function countdown_start() {
             var game_over_audio = new Audio('../music/end.mp3');
             game_over_audio.play();
 
-            // if score is greater than equal to 90
-            console.log(current_score)
-            if (current_score >= 1) {
-                document.getElementById('Game_over').innerHTML = "<p>Congratulations !! You have successfully completed this level.</p><button class=\"btn btn-primary\" onclick=\"next_level()\">Start Next Level</button>"
+            // // if score is greater than equal to 90
+            // console.log(current_score)
+            // if (current_score >= 1) {
+            //     document.getElementById('Game_over').innerHTML = "<p>Congratulations !! You have successfully completed this level.</p><button class=\"btn btn-primary\" onclick=\"next_level()\">Start Next Level</button>"
+            //     document.getElementById('Game_over').style.display = "block"
+            // }
+            // // if number of wrong answers is greater than 3 redirect to study material section
+            // else if ((wrongAnsCnt * 100) / totalQueCnt >= 40) {
+            //     document.getElementById('Game_over').innerHTML = "<p>Go to study material... Read the concept and try again</p><button class=\"btn btn-primary\" onclick=\"move_to_study_material()\">Go to study material</button>"
+            //     document.getElementById('Game_over').style.display = "block"
+            // } else {
+            //     document.getElementById('Game_over').innerHTML = "<p>Game Over!</p> <p>Your Score is " + current_score + ".</p>"
+            //     document.getElementById('Game_over').style.height = "200px"
+            // }
+
+            // if scored more than %90, congratulate and move tonext level.
+            percentage_Score = (wrongAnsCnt * 100) / totalQueCnt //wrong answers perc
+            percentage_score_correct = (100 - percentage_Score).toFixed(2) //correct answer percentage
+            if (current_score >= 1 && (wrongAnsCnt * 100) / totalQueCnt <= 10) {
+                document.getElementById('Game_over').innerHTML = "<p>CONGRATULATIONS !! <br/>You have successfully completed this level. <br/>You have scored %90. or more!<br/> You Scored " + percentage_score_correct + "%.</p><button class=\"assessment_btn\" onclick=\"next_level()\">Play Next Level</button>"
                 document.getElementById('Game_over').style.display = "block"
-            }
-            // if number of wrong answers is greater than 3 redirect to study material section
-            else if ((wrongAnsCnt * 100) / totalQueCnt >= 40) {
-                document.getElementById('Game_over').innerHTML = "<p>Go to study material... Read the concept and try again</p><button class=\"btn btn-primary\" onclick=\"move_to_study_material()\">Go to study material</button>"
-                document.getElementById('Game_over').style.display = "block"
+
+                // else failed and move to STUDY materials
             } else {
-                document.getElementById('Game_over').innerHTML = "<p>Game Over!</p> <p>Your Score is " + current_score + ".</p>"
-                document.getElementById('Game_over').style.height = "200px"
+                document.getElementById('Game_over').innerHTML = "<p>SORRY Buddy!! <br/>You will need to Watch the Study materials and try again.<br/>Score MUST be at least %90.<br/> You Scored " + percentage_score_correct + "%.</p><button class=\"assessment_btn\" onclick=\"move_to_study_material()\">Go to Study Material</button>"
+                document.getElementById('Game_over').style.display = "block"
             }
-            //time remaining disappear
+
+            console.log("Correct percentage is :%" + percentage_score_correct)
+                //time remaining disappear
             hide_func('time_remain');
             hide_func('correct_tag');
             hide_func('wrong_tag');
@@ -158,6 +178,11 @@ function next_level() {
     if (next <= 6) {
         window.location.href = window.location.pathname + "?level=" + next;
     }
+}
+
+// for redirecting in study material
+function move_to_study_material() {
+    window.location.replace("../Study material/Division_study_material.html")
 }
 
 // stop the counter
@@ -179,7 +204,7 @@ function show_func(id) {
 document.getElementById("exit_game").addEventListener("click", move_main);
 
 function move_main() {
-    window.location.replace("Arithmatic Game/main.html")
+    window.location.replace("Arithmatic Game/index.html")
 }
 
 function generateQue() {

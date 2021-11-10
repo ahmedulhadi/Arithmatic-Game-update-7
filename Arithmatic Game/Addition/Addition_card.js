@@ -5,8 +5,9 @@ var correct_ans;
 var wrong_ans;
 var wrongAnsCnt;
 var totalQueCnt;
+var percentage_Score
 
-//comitted to github
+//comitted to github..
 
 var url = window.location.href; //get url first
 var level = url.split('?')[1]; //get level  
@@ -124,25 +125,39 @@ function countdown_start() {
             var game_over_audio = new Audio('../music/end.mp3');
             game_over_audio.play();
 
-            // if score is greater than equal to 90
-            console.log(current_score)
-            if (current_score >= 1) {
-                document.getElementById('Game_over').innerHTML = "<p>Congratulations !! You have successfully completed this level.</p><button class=\"btn btn-primary\" onclick=\"next_level()\">Start Next Level</button>"
+            // if scored more than %90, congratulate and move tonext level.
+            percentage_Score = (wrongAnsCnt * 100) / totalQueCnt //wrong answers perc
+            percentage_score_correct = (100 - percentage_Score).toFixed(2) //correct answer percentage
+            if (current_score >= 1 && (wrongAnsCnt * 100) / totalQueCnt <= 10) {
+                document.getElementById('Game_over').innerHTML = "<p>CONGRATULATIONS !! <br/>You have successfully completed this level. <br/>You have scored %90. or more!<br/> You Scored " + percentage_score_correct + "%.</p><button class=\"assessment_btn\" onclick=\"next_level()\">Play Next Level</button>"
+                document.getElementById('Game_over').style.display = "block"
+
+                // else failed and move to STUDY materials
+            } else {
+                document.getElementById('Game_over').innerHTML = "<p>SORRY Buddy!! <br/>You will need to Watch the Study materials and try again.<br/>Score MUST be at least %90.<br/> You Scored " + percentage_score_correct + "%.</p><button class=\"assessment_btn\" onclick=\"move_to_study_material()\">Go to Study Material</button>"
                 document.getElementById('Game_over').style.display = "block"
             }
-            // if number of wrong answers is greater than 3 redirect to study material section
-            else if ((wrongAnsCnt * 100) / totalQueCnt >= 40) {
-                document.getElementById('Game_over').innerHTML = "<p>Go to study material... Read the concept and try again</p><button class=\"btn btn-primary\" onclick=\"move_to_study_material()\">Go to study material</button>"
-                document.getElementById('Game_over').style.display = "block"
-            } else { // if number of wrong answers is greater than 3 redirect to study material section
-                if ((wrongAnsCnt * 100) / totalQueCnt >= 40) {
-                    document.getElementById('Game_over').innerHTML = "<p>Go to study material... Read the concept and try again</p><button class=\"btn btn-primary\" onclick=\"move_to_study_material()\">Go to study material</button>"
-                    document.getElementById('Game_over').style.display = "block"
-                } else {
-                    document.getElementById('Game_over').innerHTML = "<p>Game Over!</p> <p>Your Score is " + current_score + ".</p>"
-                    document.getElementById('Game_over').style.height = "200px"
-                }
-            }
+
+            // // if score is greater than equal to 90
+            // console.log(current_score)
+            // if (current_score >= 1) {
+            //     document.getElementById('Game_over').innerHTML = "<p>Congratulations !! You have successfully completed this level.</p><button class=\"btn btn-primary\" onclick=\"next_level()\">Start Next Level</button>"
+            //     document.getElementById('Game_over').style.display = "block"
+            // }
+            // // if number of wrong answers is greater than 3 redirect to study material section
+            // else if ((wrongAnsCnt * 100) / totalQueCnt >= 40) {
+            //     document.getElementById('Game_over').innerHTML = "<p>Go to study material... Read the concept and try again</p><button class=\"btn btn-primary\" onclick=\"move_to_study_material()\">Go to study material</button>"
+            //     document.getElementById('Game_over').style.display = "block"
+            // } else { // if number of wrong answers is greater than 3 redirect to study material section
+            //     if ((wrongAnsCnt * 100) / totalQueCnt >= 40) {
+            //         document.getElementById('Game_over').innerHTML = "<p>Go to study material... Read the concept and try again</p><button class=\"btn btn-primary\" onclick=\"move_to_study_material()\">Go to study material</button>"
+            //         document.getElementById('Game_over').style.display = "block"
+            //     } else {
+            //         document.getElementById('Game_over').innerHTML = "<p>Game Over!</p> <p>Your Score is " + current_score + ".</p>"
+            //         document.getElementById('Game_over').style.height = "200px"
+            //     }
+            // }
+
             //time remaining disappear
             hide_func('time_remain');
             hide_func('correct_tag');
@@ -181,11 +196,11 @@ function show_func(id) {
 document.getElementById("exit_game").addEventListener("click", move_main);
 
 function move_main() {
-    window.location.replace("../main.html")
+    window.location.replace("../index.html")
 }
 
 function move_to_study_material() {
-    window.location.replace("../../Study material/Addition_study_material.html")
+    window.location.replace("../Study material/Addition_study_material.html")
 }
 
 function generateQue() {

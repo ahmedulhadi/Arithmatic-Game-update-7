@@ -3,144 +3,148 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <title>TigerSteins Math Game</title>
-  
-  <!-- Bootstrap core CSS -->
-  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <title>TigerSteins Math Game</title>
 
-  <!-- Custom styles for this template -->
-  <link href="../css/shop-homepage.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <style>
-    .Study_material{
-      min-height: 200px;
-      padding: 20px; 
-    }
-    .Study_material .card{
-      min-height: 200px; 
-      background: linear-gradient(120deg, rgb(216, 160, 197), rgb(135, 135, 179), rgb(173, 206, 214));
-    }
-    .Study_material .card-title{
-      text-align: center;
-      font-size: 40px;
-      color: white;
-    }
-    .Study_material button{
-      display: block; 
-      margin: 50px auto;
-      width: 200px;
-      height: 50px;
-      border-radius: 20px;
-      background-color: white;
-      font-size: 18px;
-      font-weight: bold;
-    }
-    .Study_material button:hover{
-      background-color: black;
-      color: #fff;
-    }
-  </style>
+    <!-- Custom styles for this template -->
+    <link href="../css/shop-homepage.css" rel="stylesheet">
+
+    <style>
+        .Study_material {
+            min-height: 200px;
+            padding: 20px;
+        }
+        
+        .Study_material .card {
+            min-height: 200px;
+            background: linear-gradient(120deg, rgb(216, 160, 197), rgb(135, 135, 179), rgb(173, 206, 214));
+        }
+        
+        .Study_material .card-title {
+            text-align: center;
+            font-size: 40px;
+            color: white;
+        }
+        
+        .Study_material button {
+            display: block;
+            margin: 50px auto;
+            width: 200px;
+            height: 50px;
+            border-radius: 20px;
+            background-color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .Study_material button:hover {
+            background-color: black;
+            color: #fff;
+        }
+    </style>
 
 </head>
 
 <body>
-  <!-- Navigation -->
-  
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="../main.html">Arithmetic Operation Game</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Arithmetic Operation Game</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="../main.html">Home
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../index.html">Home
               <span class="sr-only">(current)</span>
             </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Study_material.html">Study Materials</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../Assessment/Assessment.html">Assessment</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../sign_in.html">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../signup.html">Signup</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-
-  <div class="row Study_material" style="margin-top: 100px;">
-    
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Addition</h5> 
-          <button onclick="explore('Addition')">Explore</button>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Study_material.html">Study Materials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Assessment/Assessment.html">Assessment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../sign_in.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../signup.html">Signup</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Subtraction</h5> 
-          <button onclick="explore('Subtraction')">Explore</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <br><br>
-  
-  
-  <div class="row Study_material">
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Multiplication</h5> 
-          <button onclick="explore('Multiplication')">Explore</button>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Division</h5> 
-          <button onclick="explore('Division')">Explore</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="../vendor/jquery/jquery.min.js"></script>
-  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    </nav>
 
 
-  <!-- custom script -->
-  <script>
-    function explore(op){
-      // alert(op)
-      window.location.replace(`${op}_study_material.html`)
-    }
-  </script>
+    <div class="row Study_material" style="margin-top: 100px;">
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Addition</h5>
+                    <button onclick="explore('Addition')">Explore</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Subtraction</h5>
+                    <button onclick="explore('Subtraction')">Explore</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+
+    <div class="row Study_material">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Multiplication</h5>
+                    <button onclick="explore('Multiplication')">Explore</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Division</h5>
+                    <button onclick="explore('Division')">Explore</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- custom script -->
+    <script>
+        function explore(op) {
+            // alert(op)
+            window.location.replace(`${op}_study_material.html`)
+        }
+    </script>
 </body>
 
 </html>

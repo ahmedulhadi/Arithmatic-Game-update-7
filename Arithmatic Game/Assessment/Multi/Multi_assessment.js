@@ -123,7 +123,7 @@ function show_func(id) {
 document.getElementById("exit_game").addEventListener("click", move_main);
 
 function move_main() {
-    window.location.replace("../../main.html")
+    window.location.replace("../../index.html")
 }
 
 // functions

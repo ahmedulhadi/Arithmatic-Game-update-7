@@ -186,13 +186,13 @@
 
 #Game_over,
 #go_study_material {
-    height: 400px;
+    padding: 25px 50px;
+    height: 330px;
     width: 500px;
     background: linear-gradient(rgb(233, 171, 212), rgb(200, 217, 240));
     color: black;
-    font-size: 2.5em;
+    font-size: 2.33em;
     text-align: center;
-    text-transform: uppercase;
     position: absolute;
     top: 100px;
     left: 45px;
@@ -200,7 +200,8 @@
     display: none;
 }
 
-.assessment_btn {
+.assessment_btn,
+banner_btn {
     cursor: pointer;
     display: inline-block;
     font-weight: 400;
